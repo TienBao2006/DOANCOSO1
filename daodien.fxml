@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="PaneDangNhap" prefHeight="398.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Dangnhap">
+   <children>
+      <AnchorPane fx:id="panlogin" layoutX="-1.0" layoutY="2.0" prefHeight="398.0" prefWidth="581.0" styleClass="panlogin" stylesheets="@flie.css">
+         <children>
+            <ImageView fitHeight="401.0" fitWidth="585.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Ảnh/1538483038998.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="tk" layoutX="24.0" layoutY="110.0" prefHeight="40.0" prefWidth="298.0" styleClass="tk" stylesheets="@flie.css" text="Tên tài khoản" textFill="WHITE" />
+            <Label fx:id="mk" layoutX="24.0" layoutY="165.0" prefHeight="40.0" prefWidth="298.0" styleClass="tk" stylesheets="@flie.css" text="Mật khẩu" />
+            <TextField fx:id="username" layoutX="143.0" layoutY="114.0" prefHeight="33.0" prefWidth="170.0" styleClass="password" stylesheets="@flie.css" />
+            <Button layoutX="98.0" layoutY="236.0" mnemonicParsing="false" onAction="#Logintk" prefHeight="25.0" prefWidth="120.0" styleClass="themsp" stylesheets="@../Test/style.css" text="Đăng nhập" />
+            <ImageView fitHeight="85.0" fitWidth="87.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Ảnh/image-removebg-preview%20(2).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="182.0" fitWidth="244.0" layoutX="342.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Ảnh/image-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="login" layoutX="144.0" layoutY="21.0" prefHeight="64.0" prefWidth="157.0" styleClass="login" stylesheets="@flie.css" text="Đăng Nhập" textFill="#ebebeb">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="password" layoutX="143.0" layoutY="168.0" prefHeight="33.0" prefWidth="143.0" styleClass="password" stylesheets="@flie.css" />
+            <TextField fx:id="textField" layoutX="143.0" layoutY="168.0" managed="false" prefHeight="33.0" prefWidth="143.0" styleClass="password" stylesheets="@flie.css" visible="false" />
+            <Button fx:id="eyeButton" layoutX="279.0" layoutY="165.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="44.0" styleClass="transparent-button" stylesheets="@flie.css" text="👁">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <!-- Thêm hoặc sửa label status trong FXML -->
+            <Label fx:id="statusLabel" layoutX="98.0" layoutY="270.0" prefHeight="25.0" prefWidth="300.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,143 +1,151 @@
-package trangchu;
+package Login;
 
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.LayoutManager;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+import java.net.URL;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import java.util.ResourceBundle;
 
-public class Dangnhap extends JFrame implements ActionListener {
-    JButton dangnhap;
-    JButton dangki;
-    JTextField login;
-    JPasswordField pass;
-    JLabel tk;
-    JLabel mk;
-   
+public class Dangnhap implements Initializable {
 
-    public Dangnhap() {
-        super("Đăng nhập");
-        this.setSize(600, 400);
-        this.setDefaultCloseOperation(3);
-        this.setLocationRelativeTo(null);
-        ImageIcon icon = new ImageIcon("—Pngtree—avatar icon profile icon member_5247852.png");
-        Image ima = icon.getImage().getScaledInstance(100, 100, 4);
-        this.setIconImage(ima);
-        this.taikhoan();
-        this.setVisible(true);
-    }
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private AnchorPane PaneDangNhap;
+    @FXML
+    private AnchorPane panlogin;
 
-    public void taikhoan() {
-        JPanel pan = new JPanel();
-        pan.setLayout((LayoutManager)null);
-        ImageIcon icon = new ImageIcon("—Pngtree—avatar icon profile icon member_5247852.png");
-        Image image = icon.getImage().getScaledInstance(100, 100, 4);
-        JLabel ICON = new JLabel(new ImageIcon(image));
-        ICON.setBounds(150, -100, 400, 300);
-        pan.add(ICON);
-        ImageIcon icon1 = new ImageIcon("image-removebg-preview (1).png");
-        Image image1 = icon1.getImage().getScaledInstance(300, 250, 4);
-        JLabel ICON1 = new JLabel(new ImageIcon(image1));
-        ICON1.setBounds(-50, 10, 400, 300);
-        pan.add(ICON1);
-        JLabel nhap = new JLabel("Đăng nhập");
-        nhap.setFont(new Font("Serif Bold", 1, 23));
-        nhap.setBounds(400, 20, 200, 50);
-        pan.add(nhap);
-        tk = new JLabel("Tài khoản");
-        tk.setBounds(300, 100, 70, 30);
-        login = new JTextField();
-        login.setBounds(400, 100, 150, 30);
-        pan.add(this.login);
-        pan.add(this.tk);
-        mk = new JLabel("Mật khẩu");
-        mk.setBounds(300, 150, 70, 30);
-        pass = new JPasswordField();
-        pass.setBounds(400, 150, 150, 30);
-        pan.add(this.pass);
-        pan.add(this.mk);
-        dangnhap = new JButton("Đăng nhập");
-        dangnhap.setBounds(340, 200, 100, 30);
-        dangnhap.addActionListener(this);
-        pan.add(this.dangnhap);
-        dangki = new JButton("Đăng kí");
-        dangki.setBounds(450, 200, 100, 30);
-        dangki.addActionListener(this);
-        pan.add(this.dangki);
-        this.add(pan);
-    }
+    @FXML
+    private PasswordField password;
 
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == dangnhap) { 
-            String taikhoan = login.getText().trim();
-            String matkhau = (new String(pass.getPassword())).trim();
-          if(taikhoan.isEmpty()||matkhau.isEmpty()) {
-          JOptionPane.showMessageDialog(this, "Vui lòng nhập thông tin đầy đủ");
-          return ;
-          }
-        	String nguoidung=Kiemtra(taikhoan,matkhau);  
-        	if (nguoidung != null) {
-                if ("Nhân viên quản lý kho".equals(nguoidung)) {
-                    JOptionPane.showMessageDialog(this, "Đăng nhập thành công: Quản lý kho hàng");
-                  new Admin();
-                } else if ("Nhân viên bán hàng".equals(nguoidung)) {
-                    JOptionPane.showMessageDialog(this, "Đăng nhập thành công: Trang chủ bán hàng");
-                 new NhanVien();
-                }
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(this, "Tài khoản không tồn tại");
-            }
-        } else if (e.getSource() == dangki) {
-            new Dangki();
-            this.dispose();
+    @FXML
+    private TextField textField;
+    @FXML
+    private TextField username;
+
+    @FXML
+    private Button eyeButton;
+
+    private boolean isVisible = false;
+    private DatabaseConnection databaseConnection;
+    private Stage stage;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        databaseConnection = new DatabaseConnection();
+        textField.textProperty().bindBidirectional(password.textProperty());
+        eyeButton.setOnMouseClicked(this::handleEyeButtonClick);
+
+        if (statusLabel == null) {
+            System.err.println("Warning: statusLabel is not properly initialized in FXML");
         }
-        
     }
-public String Kiemtra(String taikhoan,String matkhau) {
-	Connection con=null;
-	PreparedStatement stm=null;
-	ResultSet res=null;
-	try {
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quanlycuahang", "root", "2904");
-		String query="SELECT*FROM dangki WHERE taikhoan =? AND matkhau =? ";
-		stm =con.prepareStatement(query);
-		stm.setString(1,taikhoan);
-		stm.setString(2,matkhau);
-		res= stm.executeQuery();
-		if (res.next()) {
-            return res.getString("nguoidung");
+
+    private void handleEyeButtonClick(MouseEvent event) {
+        isVisible = !isVisible;
+        textField.setVisible(isVisible);
+        textField.setManaged(isVisible);
+        password.setVisible(!isVisible);
+        password.setManaged(!isVisible);
+        eyeButton.setText(isVisible ? "🙈" : "👁");
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    @FXML
+    private void Logintk() {
+        String user = username.getText().trim();
+        String passwd = password.getText().trim();
+
+        System.out.println("Đang thử đăng nhập với: " + username + "/" + passwd);
+
+        if (user.isEmpty() || passwd.isEmpty()) {
+            setStatusMessage("Vui lòng nhập đầy đủ thông tin!", "red");
+            return;
         }
-	}catch (SQLException ex) {
-		ex.printStackTrace();
-		JOptionPane.showMessageDialog(this, "Lỗi kết nối cơ sở dữ liệu: " + ex.getMessage());
-		
-	}finally {
+
+        // Kiểm tra kết nối database trước
+        try (Connection testConn = databaseConnection.getConnection()) {
+            System.out.println("Kết nối database OK");
+        } catch (SQLException e) {
+            setStatusMessage("Lỗi kết nối database", "red");
+            e.printStackTrace();
+            return;
+        }
+
+        if (checkLogin(user, passwd)) {
+            setStatusMessage("Đăng nhập thành công!", "green");
+            openMainApplication();
+            PaneDangNhap.setVisible(false);
+            panlogin.setVisible(false);
+        } else {
+            setStatusMessage("Sai tài khoản hoặc mật khẩu!", "red");
+        }
         try {
-            if (res != null) res.close();
-            if (stm != null) stm.close();
-            if (con != null) con.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            Connection testConn = databaseConnection.getConnection();
+            System.out.println("Database connection successful!");
+            testConn.close();
+        } catch (SQLException e) {
+            System.err.println("Database connection failed: " + e.getMessage());
+            setStatusMessage("Lỗi kết nối database", "red");
+            return;
         }
     }
-	 return null;
-}
-    public static void main(String[] args) {
-        new Dangnhap();
+
+    private void setStatusMessage(String message, String color) {
+        if (statusLabel != null) {
+            statusLabel.setText(message);
+            statusLabel.setStyle("-fx-text-fill: " + color + ";");
+        } else {
+            System.out.println("Status: " + message);
+        }
     }
+
+    private boolean checkLogin(String user, String passwd) {
+        String sql = "SELECT * FROM qlynhanvien WHERE Taikhoan = ? AND Matkhau = ?";
+
+        try (Connection conn = databaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, user);
+            stmt.setString(2, passwd);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                System.out.println("Login successful for: " + user);
+                return true;
+            } else {
+                System.out.println("Login failed - Invalid credentials");
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println("Database error: " + e.getMessage());
+            setStatusMessage("Lỗi kết nối database", "red");
+            return false;
+        }
+    }
+
+    private void openMainApplication() {
+        try {
+            new Test.App().start(new Stage());
+        } catch (Exception e) {
+            setStatusMessage("Lỗi khi mở ứng dụng chính!", "red");
+            e.printStackTrace();
+        }
+    }
+
+
 }
