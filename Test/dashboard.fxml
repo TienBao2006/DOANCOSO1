@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="741.0" prefWidth="285.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Test.Controller">
+   <children>
+      <VBox fx:id="vbox" layoutY="6.0" prefHeight="733.0" prefWidth="241.0" styleClass="vbox" stylesheets="@style.css">
+         <children>
+            <AnchorPane fx:id="anchor" prefHeight="767.0" prefWidth="237.0" styleClass="anchor" stylesheets="@style.css">
+               <children>
+                  <Button fx:id="btn1" layoutX="7.0" layoutY="114.0" mnemonicParsing="false" onAction="#initialize" prefHeight="53.0" prefWidth="224.0" styleClass="btn1" stylesheets="@style.css" text="Trang chủ" />
+                  <Button fx:id="btn3" layoutX="7.0" layoutY="176.0" mnemonicParsing="false" onAction="#switchToAnchor1" prefHeight="53.0" prefWidth="224.0" styleClass="btn2" stylesheets="@style.css" text="Thống kê" />
+                  <Button fx:id="btn2" layoutX="6.0" layoutY="237.0" mnemonicParsing="false" onAction="#switchToAnchor2" prefHeight="53.0" prefWidth="224.0" styleClass="btn2" stylesheets="@style.css" text="Sản phẩm" />
+                  <Button fx:id="btn31" layoutX="6.0" layoutY="303.0" mnemonicParsing="false" onAction="#switchToAnchorKhohang" prefHeight="53.0" prefWidth="224.0" styleClass="btn2" stylesheets="@style.css" text="Kho hàng" />
+                  <Button fx:id="btn311" layoutX="6.0" layoutY="365.0" mnemonicParsing="false" onAction="#switchToAnchor_button2" prefHeight="53.0" prefWidth="224.0" styleClass="btn2" stylesheets="@style.css" text="Nhân viên" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+
+      <AnchorPane fx:id="anchorbuton2" layoutX="244.0" layoutY="10.0" prefHeight="729.0" prefWidth="1133.0" styleClass="anchor1" stylesheets="@style.css">
+         <children>
+            <Pane fx:id="pan2" layoutX="23.0" layoutY="14.0" prefHeight="86.0" prefWidth="1091.0" styleClass="pan1" stylesheets="@style.css">
+               <children>
+                  <Button fx:id="themnv" contentDisplay="RIGHT" layoutX="24.0" layoutY="6.0" mnemonicParsing="false" onAction="#switchToAnchor_buttonnv" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="61.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@—Pngtree—medical%20plus%20button%20symbol%20png_14531815.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="suanv" layoutX="125.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchToAnchor_buttonnv1" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="66.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image-removebg-preview%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="231.0" layoutY="6.0" mnemonicParsing="false" onAction="#xoaNhanVien" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css" fx:id="xoanv">
+                     <graphic>
+                        <ImageView fitHeight="56.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@—Pngtree—delete%20button%203d%20icon_8633077.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="335.0" layoutY="6.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="63.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image-removebg-preview%20(3).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="filexml1" layoutX="437.0" layoutY="7.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="52.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image-removebg-preview%20(4).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="541.0" layoutY="7.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css" text="xuat" fx:id="xuatfile1" />
+                  <TextField fx:id="tex1" layoutX="746.0" layoutY="25.0" prefHeight="31.0" prefWidth="217.0" promptText="Tìm kiếm" />
+                  <Button layoutX="972.0" layoutY="26.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" text="Làm mới">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <!-- In your dashboard.fxml, replace the second TableView (around line 160) with: -->
+            <TableView fx:id="table1" layoutX="22.0" layoutY="117.0" prefHeight="598.0" prefWidth="1090.0">
+               <columns>
+                  <TableColumn fx:id="maNVCol" prefWidth="50.0" text="MãNV" />
+                  <TableColumn fx:id="tenCol" prefWidth="133.0" text="Tên" />
+                  <TableColumn fx:id="ngaySinhCol" prefWidth="114.0" text="Ngày sinh" />
+                  <TableColumn fx:id="gioiTinhCol" prefWidth="69.0" text="Giới tính" />
+                  <TableColumn fx:id="diaChiCol" prefWidth="184.0" text="Địa chỉ" />
+                  <TableColumn fx:id="sdtCol" prefWidth="100.0" text="SĐT" />
+                  <TableColumn fx:id="emailCol" prefWidth="110.0" text="Email" />
+                  <TableColumn fx:id="taiKhoanCol" prefWidth="110.0" text="Tên đăng nhập" />
+                  <TableColumn fx:id="matKhauCol" prefWidth="110.0" text="Mật khẩu" />
+                  <TableColumn fx:id="hinhAnhCol" prefWidth="110.0" text="Hình Ảnh" />
+               </columns>
+            </TableView>
+         </children></AnchorPane>
+      <AnchorPane fx:id="anchor2" layoutX="245.0" layoutY="12.0" prefHeight="729.0" prefWidth="1133.0" styleClass="anchor1" stylesheets="@style.css">
+         <children>
+            <Pane fx:id="pan1" layoutX="16.0" layoutY="11.0" prefHeight="86.0" prefWidth="1098.0" styleClass="pan1" stylesheets="@style.css">
+               <children>
+                  <Button fx:id="them" contentDisplay="RIGHT" layoutX="24.0" layoutY="6.0" mnemonicParsing="false" onAction="#switchToAnchor_button" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="61.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@—Pngtree—medical%20plus%20button%20symbol%20png_14531815.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="sua" layoutX="125.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchToAnchor_button1" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="66.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image-removebg-preview%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="231.0" layoutY="6.0" mnemonicParsing="false" onAction="#xoaSanPham" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css" fx:id="xoa">
+                     <graphic>
+                        <ImageView fitHeight="56.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@—Pngtree—delete%20button%203d%20icon_8633077.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="335.0" layoutY="6.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="63.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image-removebg-preview%20(3).png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="filexml" layoutX="437.0" layoutY="7.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="52.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image-removebg-preview%20(4).png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="541.0" layoutY="7.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="79.0" styleClass="anchor1" stylesheets="@style.css" text="xuat" fx:id="xuatfile" />
+                  <TextField fx:id="tex" layoutX="746.0" layoutY="25.0" prefHeight="31.0" prefWidth="217.0" promptText="Tìm kiếm" />
+                  <Button layoutX="972.0" layoutY="26.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" text="Làm mới">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></Button>
+               </children>
+            </Pane>
+            <TableView fx:id="table" layoutX="16.0" layoutY="120.0" prefHeight="556.0" prefWidth="1110.0" stylesheets="@style.css">
+               <columns>
+                  <TableColumn fx:id="masp" prefWidth="110.0" text="Mã sản phẩm" />
+                  <TableColumn fx:id="tensp" prefWidth="110.0" text="Tên sản phẩm" />
+                  <TableColumn fx:id="soluong" prefWidth="110.0" text="Số lượng" />
+                  <TableColumn fx:id="loai" prefWidth="110.0" text="Loại" />
+                  <TableColumn fx:id="giagoc" prefWidth="110.0" text="Giá gốc" />
+                  <TableColumn fx:id="giaban" prefWidth="110.0" text="Giá bán" />
+                  <TableColumn fx:id="nhacungcap" prefWidth="110.0" text="Nhà cung cấp" />
+                  <TableColumn fx:id="mavach" prefWidth="110.0" text="Mã vạch" />
+                  <TableColumn fx:id="mota" prefWidth="110.0" text="Mô tả" />
+                  <TableColumn fx:id="hinhanh" prefWidth="110.0" text="Hình ảnh" />
+
+               </columns>
+               <styleClass>
+                  <String fx:value="table" />
+                  <String fx:value="table-view" />
+                  <String fx:value="table-row-cell" />
+                  <String fx:value="table-cell" />
+                  <String fx:value="scroll-bar" />
+               </styleClass>
+            </TableView>
+
+         </children>
+      </AnchorPane>
+
+      <AnchorPane fx:id="anchorbutonnv1" layoutX="259.0" layoutY="122.0" prefHeight="350.0" prefWidth="1098.0" styleClass="anchor1" stylesheets="@style.css">
+         <children>
+            <Label layoutX="44.0" layoutY="49.0" prefHeight="18.0" prefWidth="102.0" text="Mã nhân viên" />
+            <Label layoutX="43.0" layoutY="83.0" prefHeight="18.0" prefWidth="94.0" text="Họ và tên" />
+            <Label layoutX="43.0" layoutY="118.0" prefHeight="18.0" prefWidth="61.0" text="Ngày sinh" />
+            <Label layoutX="43.0" layoutY="161.0" prefHeight="18.0" prefWidth="61.0" text="Giới tính" />
+            <Label layoutX="43.0" layoutY="195.0" prefHeight="18.0" prefWidth="61.0" text="Địa chỉ" />
+            <Label layoutX="43.0" layoutY="238.0" prefHeight="18.0" prefWidth="61.0" text="Số điện thoại" />
+            <Label layoutX="352.0" layoutY="49.0" prefHeight="18.0" prefWidth="102.0" text="Email" />
+            <Label layoutX="352.0" layoutY="83.0" prefHeight="18.0" prefWidth="61.0" text="Tên tài khoản" />
+            <Label layoutX="352.0" layoutY="118.0" prefHeight="18.0" prefWidth="61.0" text="Mật khảu" />
+            <TextField fx:id="editnv" layoutX="149.0" layoutY="45.0" />
+            <TextField fx:id="editnv1" layoutX="149.0" layoutY="79.0" />
+            <DatePicker fx:id="editNgaysinh" layoutX="149.0" layoutY="114.0" />
+            <TextField fx:id="editnv3" layoutX="149.0" layoutY="157.0" />
+            <TextField fx:id="editnv4" layoutX="149.0" layoutY="191.0" />
+            <TextField fx:id="editnv5" layoutX="149.0" layoutY="234.0" />
+            <TextField fx:id="editnv6" layoutX="454.0" layoutY="45.0" />
+            <TextField fx:id="editnv7" layoutX="454.0" layoutY="79.0" />
+            <TextField fx:id="editnv8" layoutX="454.0" layoutY="114.0" />
+            <Button fx:id="btnChonAnhnv" layoutX="763.0" layoutY="245.0" onAction="#chonAnhSuanv" styleClass="suanv" stylesheets="@style.css" text="Chọn Ảnh" />
+            <TextField fx:id="txtHinhAnhNV1" layoutX="646.0" layoutY="45.0" prefWidth="300" promptText="Đường dẫn ảnh" />
+            <ImageView fx:id="editImageViewnv" fitHeight="149.0" fitWidth="224.0" layoutX="702.0" layoutY="87.0" />
+            <Button fx:id="SuaNV" layoutX="361.0" layoutY="283.0" mnemonicParsing="false" onAction="#suaNhanVien" prefHeight="42.0" prefWidth="186.0" styleClass="themsp" stylesheets="@style.css" text="Sửa thành viên" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorbuton1" layoutX="258.0" layoutY="133.0" prefHeight="340.0" prefWidth="1107.0" styleClass="anchor1" stylesheets="@style.css">
+         <children>
+            <Label layoutX="44.0" layoutY="49.0" prefHeight="18.0" prefWidth="102.0" text="Mã sản phẩm" />
+            <Label layoutX="43.0" layoutY="83.0" prefHeight="18.0" prefWidth="94.0" text="Tên sản phẩm" />
+            <Label layoutX="43.0" layoutY="118.0" prefHeight="18.0" prefWidth="61.0" text="Loại" />
+            <Label layoutX="43.0" layoutY="161.0" prefHeight="18.0" prefWidth="61.0" text="Số lượng" />
+            <Label layoutX="43.0" layoutY="195.0" prefHeight="18.0" prefWidth="61.0" text="Giá gốc" />
+            <Label layoutX="43.0" layoutY="238.0" prefHeight="18.0" prefWidth="61.0" text="Giá bản" />
+            <Label layoutX="352.0" layoutY="49.0" prefHeight="18.0" prefWidth="102.0" text="Nhà cung cấp" />
+            <Label layoutX="352.0" layoutY="83.0" prefHeight="18.0" prefWidth="61.0" text="Mã vạch" />
+            <Label layoutX="352.0" layoutY="118.0" prefHeight="18.0" prefWidth="61.0" text="Mô tả" />
+            <TextField fx:id="editMaSP" layoutX="149.0" layoutY="45.0" />
+            <TextField fx:id="editTenSP" layoutX="149.0" layoutY="79.0" />
+            <TextField fx:id="editLoaiSP" layoutX="149.0" layoutY="114.0" />
+            <TextField fx:id="editSoLuong" layoutX="149.0" layoutY="157.0" />
+            <TextField fx:id="editGiaGoc" layoutX="149.0" layoutY="191.0" />
+            <TextField fx:id="editGiaBan" layoutX="149.0" layoutY="234.0" />
+            <TextField fx:id="editNhaCungCap" layoutX="454.0" layoutY="45.0" />
+            <TextField fx:id="editMaVach" layoutX="454.0" layoutY="79.0" />
+            <TextField fx:id="editMoTa" layoutX="454.0" layoutY="114.0" />
+            <Button fx:id="btnChonAnh" layoutX="763.0" layoutY="245.0" onAction="#chonAnhSua" styleClass="suasp" stylesheets="@style.css" text="Chọn Ảnh" />
+            <TextField fx:id="editHinhAnh" layoutX="646.0" layoutY="45.0" onAction="#chonAnh" prefWidth="300" promptText="Đường dẫn ảnh" />
+            <ImageView fx:id="editImageView" fitHeight="149.0" fitWidth="206.0" layoutX="696.0" layoutY="86.0" />
+            <Button fx:id="suasp" layoutX="361.0" layoutY="283.0" mnemonicParsing="false" onAction="#suaSanPham" prefHeight="42.0" prefWidth="186.0" styleClass="themsp" stylesheets="@style.css" text="Sửa sản phẩm" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorbuton" layoutX="257.0" layoutY="133.0" prefHeight="340.0" prefWidth="1110.0" styleClass="anchor1" stylesheets="@style.css">
+         <children>
+            <Label layoutX="44.0" layoutY="49.0" prefHeight="18.0" prefWidth="102.0" text="Mã sản phẩm" />
+            <Label layoutX="43.0" layoutY="83.0" prefHeight="18.0" prefWidth="94.0" text="Tên sản phẩm" />
+            <Label layoutX="43.0" layoutY="118.0" prefHeight="18.0" prefWidth="61.0" text="Loại" />
+            <Label layoutX="43.0" layoutY="161.0" prefHeight="18.0" prefWidth="61.0" text="Số lượng" />
+            <Label layoutX="43.0" layoutY="195.0" prefHeight="18.0" prefWidth="61.0" text="Giá gốc" />
+            <Label layoutX="43.0" layoutY="238.0" prefHeight="18.0" prefWidth="61.0" text="Giá bản" />
+            <Label layoutX="352.0" layoutY="49.0" prefHeight="18.0" prefWidth="102.0" text="Nhà cung cấp" />
+            <Label layoutX="352.0" layoutY="83.0" prefHeight="18.0" prefWidth="61.0" text="Mã vạch" />
+            <Label layoutX="352.0" layoutY="118.0" prefHeight="18.0" prefWidth="61.0" text="Mô tả" />
+            <TextField fx:id="text" layoutX="149.0" layoutY="45.0" />
+            <TextField fx:id="text1" layoutX="149.0" layoutY="79.0" />
+            <TextField fx:id="text2" layoutX="149.0" layoutY="114.0" />
+            <TextField fx:id="text3" layoutX="149.0" layoutY="191.0" />
+            <TextField fx:id="text4" layoutX="149.0" layoutY="157.0" />
+            <TextField fx:id="text5" layoutX="149.0" layoutY="234.0" />
+            <TextField fx:id="text6" layoutX="454.0" layoutY="45.0" />
+            <TextField fx:id="text7" layoutX="454.0" layoutY="79.0" />
+            <TextField fx:id="text8" layoutX="454.0" layoutY="114.0" />
+            <Button fx:id="btnChonAnh" layoutX="763.0" layoutY="245.0" onAction="#chonAnh" styleClass="themsp" stylesheets="@style.css" text="Chọn Ảnh" />
+            <TextField fx:id="txtHinhAnh" layoutX="646.0" layoutY="45.0" prefWidth="300" promptText="Đường dẫn ảnh" />
+            <ImageView fx:id="imageView" fitHeight="149.0" fitWidth="206.0" layoutX="696.0" layoutY="86.0" />
+            <Button fx:id="themsp" layoutX="361.0" layoutY="283.0" mnemonicParsing="false" onAction="#themSanPham" prefHeight="42.0" prefWidth="186.0" styleClass="themsp" stylesheets="@style.css" text="Thêm sản phẩm" />
+
+         </children></AnchorPane>
+      <AnchorPane fx:id="anchorbutonnv" layoutX="260.0" layoutY="122.0" prefHeight="350.0" prefWidth="1098.0" styleClass="anchor1" stylesheets="@style.css">
+         <children>
+            <Label layoutX="44.0" layoutY="49.0" prefHeight="18.0" prefWidth="102.0" text="Mã nhân viên" />
+            <Label layoutX="43.0" layoutY="83.0" prefHeight="18.0" prefWidth="94.0" text="Họ và tên" />
+            <Label layoutX="43.0" layoutY="118.0" prefHeight="18.0" prefWidth="61.0" text="Ngày sinh" />
+            <Label layoutX="43.0" layoutY="161.0" prefHeight="18.0" prefWidth="61.0" text="Giới tính" />
+            <Label layoutX="43.0" layoutY="195.0" prefHeight="18.0" prefWidth="61.0" text="Địa chỉ" />
+            <Label layoutX="43.0" layoutY="238.0" prefHeight="18.0" prefWidth="94.0" text="Số điện thoại" />
+            <Label layoutX="352.0" layoutY="49.0" prefHeight="18.0" prefWidth="102.0" text="Email" />
+            <Label layoutX="352.0" layoutY="83.0" prefHeight="18.0" prefWidth="101.0" text="Tên tài khoản" />
+            <Label layoutX="352.0" layoutY="118.0" prefHeight="18.0" prefWidth="61.0" text="Mật khảu" />
+            <TextField fx:id="addnv" layoutX="149.0" layoutY="45.0" />
+            <TextField fx:id="addnv1" layoutX="149.0" layoutY="79.0" />
+            <DatePicker fx:id="addNgaySinh" layoutX="149.0" layoutY="114.0" />
+            <TextField fx:id="addnv3" layoutX="149.0" layoutY="157.0" />
+            <TextField fx:id="addnv4" layoutX="149.0" layoutY="191.0" />
+            <TextField fx:id="addnv5" layoutX="149.0" layoutY="234.0" />
+            <TextField fx:id="addnv6" layoutX="454.0" layoutY="45.0" />
+            <TextField fx:id="addnv7" layoutX="454.0" layoutY="79.0" />
+            <TextField fx:id="addnv8" layoutX="454.0" layoutY="114.0" />
+            <Button fx:id="btnChonAnhnv" layoutX="763.0" layoutY="245.0" onAction="#chonAnhnv" styleClass="themnv" stylesheets="@style.css" text="Chọn Ảnh" />
+            <TextField fx:id="txtHinhAnhNV" layoutX="646.0" layoutY="45.0" prefWidth="300" promptText="Đường dẫn ảnh" />
+            <ImageView fx:id="imageViewnv" fitHeight="149.0" fitWidth="224.0" layoutX="702.0" layoutY="87.0" />
+            <Button fx:id="THemNv" layoutX="361.0" layoutY="283.0" mnemonicParsing="false" onAction="#themNhanVien" prefHeight="42.0" prefWidth="186.0" styleClass="themsp" stylesheets="@style.css" text="Thêm nhân viên" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchor1" layoutX="245.0" layoutY="12.0" prefHeight="729.0" prefWidth="1133.0" styleClass="anchor1" stylesheets="@style.css">
+         <children>
+            <BarChart fx:id="barChart" layoutX="14.0" layoutY="54.0" prefHeight="400.0" prefWidth="1107.0">
+               <xAxis>
+                  <CategoryAxis label="Ngày" fx:id="xAxis" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="yAxis" label="Số tiền" />
+               </yAxis>
+            </BarChart>
+            <!-- TableView -->
+            <TableView fx:id="revenueTable" layoutX="34.0" layoutY="465.0" onSort="#showEditFormnv" prefHeight="220.0" prefWidth="1080.0" stylesheets="@style.css">
+               <columns>
+                  <TableColumn fx:id="ngayColumn" prefWidth="270.0" text="Ngày" />
+                  <TableColumn fx:id="vonColumn" prefWidth="270.0" text="Vốn" />
+                  <TableColumn fx:id="doanhThuColumn" prefWidth="270.0" text="Doanh thu" />
+                  <TableColumn fx:id="loiNhuanColumn" prefWidth="270.0" text="Lợi nhuận" />
+               </columns>
+               <styleClass>
+                  <String fx:value="table" />
+                  <String fx:value="table-view" />
+                  <String fx:value="table-row-cell" />
+                  <String fx:value="table-cell" />
+                  <String fx:value="scroll-bar" />
+               </styleClass>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="khohang" layoutX="245.0" layoutY="12.0" prefHeight="729.0" prefWidth="1133.0" styleClass="anchor1" stylesheets="@style.css">
+         <children>
+            <HBox layoutX="25.0" layoutY="23.0" prefHeight="38.0" prefWidth="369.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Thực phẩm và đồ ăn vặt" />
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Đồ Uống" />
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Khác" />
+               </children></HBox>
+            <AnchorPane fx:id="anchorKho1" layoutX="0.0" layoutY="105.0" prefHeight="600.0" prefWidth="1055.0" >
+            <TableView fx:id="tableTP" layoutX="25.0" layoutY="105.0" prefHeight="550.0" prefWidth="1000.0">
+              <columns>
+                 <TableColumn fx:id="masp" prefWidth="110.0" text="Mã sản phẩm" />
+                 <TableColumn fx:id="tensp" prefWidth="110.0" text="Tên sản phẩm" />
+                 <TableColumn fx:id="soluong" prefWidth="110.0" text="Số lượng" />
+                 <TableColumn fx:id="loai" prefWidth="110.0" text="Loại" />
+                 <TableColumn fx:id="giagoc" prefWidth="110.0" text="Giá gốc" />
+                 <TableColumn fx:id="giaban" prefWidth="110.0" text="Giá bán" />
+                 <TableColumn fx:id="nhacungcap" prefWidth="110.0" text="Nhà cung cấp" />
+                 <TableColumn fx:id="mavach" prefWidth="110.0" text="Mã vạch" />
+                 <TableColumn fx:id="mota" prefWidth="110.0" text="Mô tả" />
+                 <TableColumn fx:id="hinhanh" prefWidth="110.0" text="Hình ảnh" />
+              </columns>
+            </TableView>
+            </AnchorPane>
+<!--          Kho Nước uống-->
+            <AnchorPane fx:id="anchorKho2" layoutX="27.0" layoutY="105.0" prefHeight="600.0" prefWidth="1055.0" >
+            <TableView fx:id="tableNU" layoutX="25.0" layoutY="105.0" prefHeight="550.0" prefWidth="1000.0">
+              <columns>
+                 <TableColumn fx:id="masp" prefWidth="110.0" text="Mã sản phẩm" />
+                 <TableColumn fx:id="tensp" prefWidth="110.0" text="Tên sản phẩm" />
+                 <TableColumn fx:id="soluong" prefWidth="110.0" text="Số lượng" />
+                 <TableColumn fx:id="loai" prefWidth="110.0" text="Loại" />
+                 <TableColumn fx:id="giagoc" prefWidth="110.0" text="Giá gốc" />
+                 <TableColumn fx:id="giaban" prefWidth="110.0" text="Giá bán" />
+                 <TableColumn fx:id="nhacungcap" prefWidth="110.0" text="Nhà cung cấp" />
+                 <TableColumn fx:id="mavach" prefWidth="110.0" text="Mã vạch" />
+                 <TableColumn fx:id="mota" prefWidth="110.0" text="Mô tả" />
+                 <TableColumn fx:id="hinhanh" prefWidth="110.0" text="Hình ảnh" />
+              </columns>
+            </TableView>
+            </AnchorPane>
+<!--            Kho hàng khác -->
+            <AnchorPane fx:id="anchorKho3" layoutX="27.0" layoutY="105.0" prefHeight="600.0" prefWidth="1055.0" >
+            <TableView fx:id="tableKhac" layoutX="25.0" layoutY="105.0" prefHeight="550.0" prefWidth="1000.0">
+              <columns>
+                 <TableColumn fx:id="masp" prefWidth="110.0" text="Mã sản phẩm" />
+                 <TableColumn fx:id="tensp" prefWidth="110.0" text="Tên sản phẩm" />
+                 <TableColumn fx:id="soluong" prefWidth="110.0" text="Số lượng" />
+                 <TableColumn fx:id="loai" prefWidth="110.0" text="Loại" />
+                 <TableColumn fx:id="giagoc" prefWidth="110.0" text="Giá gốc" />
+                 <TableColumn fx:id="giaban" prefWidth="110.0" text="Giá bán" />
+                 <TableColumn fx:id="nhacungcap" prefWidth="110.0" text="Nhà cung cấp" />
+                 <TableColumn fx:id="mavach" prefWidth="110.0" text="Mã vạch" />
+                 <TableColumn fx:id="mota" prefWidth="110.0" text="Mô tả" />
+                 <TableColumn fx:id="hinhanh" prefWidth="110.0" text="Hình ảnh" />
+              </columns>
+            </TableView>
+            </AnchorPane>
+
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
